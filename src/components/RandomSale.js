@@ -24,11 +24,11 @@ export default function RandomSale() {
       {data && (
         <>
           {' '}
-          <div className='w-28 h-10 rounded-br-xl bg-yellow-300 absolute top-0 left-0 flex justify-center items-center font-bold uppercase'>
+          <div className='w-28 h-10 rounded-br-xl bg-yellow-300 absolute top-0 left-0 flex justify-center items-center font-bold uppercase p-0 hover:h-12 hover:w-32 hover:text-xl transition-all duration-300 ease-in-out'>
             <p>Sales</p>
           </div>
           <div className='w-64 h-28 absolute top-0 right-0 p-6 flex flex-col items-end font-bold uppercase'>
-            <p className='text-4xl mb-2 text-yellow-300'>
+            <p className='text-4xl mb-2 text-amber-500'>
               {Math.floor(data.price * 0.5)} $
             </p>
             <div className='relative'>
@@ -37,8 +37,8 @@ export default function RandomSale() {
             </div>
           </div>
           <NavLink
-            className='w-full flex flex-col items-center text-center'
-            to={'/'}
+            className='w-full flex flex-col items-center text-center transform hover:scale-110 transition-all duration-300 ease-in-out'
+            to={`/${data.category}/${data.id}`}
           >
             {' '}
             <img
@@ -48,9 +48,9 @@ export default function RandomSale() {
             />
             <p className='font-semibold w-4/5 mb-4'> {data.title}</p>
           </NavLink>
-          <div className='w-full h-1/6 hover:h-1/5 bg-gray-200 flex flex-col justify-center items-center text-xl hover:text-2xl rounded-t-xl transition-all ease-in-out duration-200'>
+          <div className='w-full h-1/6 hover:h-1/5 bg-gray-100 flex flex-col justify-center items-center text-xl rounded-t-xl  hover:text-2xl  transition-all ease-in-out duration-200'>
             <p>Offer is valid until:</p>
-            <p className='font-semibold text-yellow-600'>31.12.23</p>
+            <p className='font-semibold text-amber-600'>31.12.23</p>
           </div>
         </>
       )}
