@@ -3,6 +3,8 @@ import { useGetProductQuery } from '../store/fakeStoreApi/fakeStore.api';
 import ErrorComp from './ErrorComp';
 import LoadingComp from './LoadingComp';
 import { NavLink } from 'react-router-dom';
+
+
 export default function RandomSale() {
   const [randomInt, setRandomInt] = useState(1);
   const { data, isLoading, isError } = useGetProductQuery(randomInt);
@@ -24,7 +26,7 @@ export default function RandomSale() {
       {data && (
         <>
           {' '}
-          <div className='w-28 h-10 rounded-br-xl bg-yellow-300 absolute top-0 left-0 flex justify-center items-center font-bold uppercase p-0 hover:h-12 hover:w-32 hover:text-xl transition-all duration-300 ease-in-out'>
+          <div className='w-28 h-10 rounded-br-xl bg-yellow-300 absolute top-0 left-0 flex justify-center items-center font-bold uppercase p-0 hover:h-12 hover:w-32 hover:text-xl transition-all duration-300 ease-in-out' >
             <p>Sales</p>
           </div>
           <div className='w-64 h-28 absolute top-0 right-0 p-6 flex flex-col items-end font-bold uppercase'>

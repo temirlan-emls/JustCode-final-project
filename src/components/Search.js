@@ -6,17 +6,15 @@ export default function Search() {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(
-      data.filter((item) =>
-        item.title
-          .toLowerCase()
-          .includes(event.target.searchData.value.toLowerCase())
-      )
+    data.filter((item) =>
+      item.title
+        .toLowerCase()
+        .includes(event.target.searchData.value.toLowerCase())
     );
   };
 
   return (
-    <div className='w-full h-16 mt-10'>
+    <div className='w-full h-16 mt-6'>
       <form
         className='w-full h-full'
         onSubmit={(event) => submitHandler(event)}

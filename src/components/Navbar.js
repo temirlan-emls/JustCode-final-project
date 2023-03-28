@@ -1,33 +1,37 @@
-import logo from '../assets/logo.png';
 import mapPoint from '../assets/mapPoint.png';
-import login from '../assets/login.png';
-import cart from '../assets/cart.png';
-import like from '../assets/like.png';
 import { NavLink } from 'react-router-dom';
 import { useGetCategoriesQuery } from '../store/fakeStoreApi/fakeStore.api';
 import LoadingComp from './LoadingComp';
 import ErrorComp from './ErrorComp';
+import Logo from './Logo';
+import CartComp from './CartComp';
+import LikedCom from './LikedCom';
+import LoginComp from './LoginComp';
 
 export default function Navbar() {
   const { data, isLoading, isError } = useGetCategoriesQuery();
   return (
-    <div className='w-full h-56'>
+    <nav className='w-full h-56'>
       <div className='w-full h-4/6 grid grid-cols-3 items-center'>
         <div className='flex justify-between font-bold text-xl tracking-wide'>
-          <h2 className='py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out'>
+          <h2 className='py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out  flex items-center'>
             <NavLink to={'/stores'}>Stores</NavLink>
           </h2>
-          <h2 className='py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out'>
-            <NavLink to={'/sales'}>Sales</NavLink>
+          <h2 className='py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out text-center line leading-5'>
+            <NavLink to={'/shipping'}>
+              Shipping
+              <br />
+              and
+              <br />
+              Payment
+            </NavLink>
           </h2>
-          <h2 className='py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out'>
-            <NavLink to={'/shipping'}>Shipping and Payment</NavLink>
+          <h2 className='py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out flex items-center'>
+            <NavLink to={'/sales'}>Sales</NavLink>
           </h2>
         </div>
         <div>
-          <NavLink to={'/'} className='flex justify-center'>
-            <img src={logo} alt='logo' className='w-4/6 transform hover:scale-110 transition-all duration-300 ease-in-out' />
-          </NavLink>
+          <Logo />
         </div>
         <div className='flex justify-between items-center font-bold text-xl tracking-wide'>
           <h2 className='flex py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out'>
@@ -39,27 +43,9 @@ export default function Navbar() {
             </NavLink>
           </h2>
           <div className='w-3/6 flex justify-around'>
-            <NavLink
-              to={'/login'}
-              className='flex flex-col items-center py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out'
-            >
-              <img src={login} alt='login' className='h-6' />
-              <p className='text-sm'>Login</p>
-            </NavLink>
-            <NavLink
-              to={'/liked'}
-              className='flex flex-col items-center py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out'
-            >
-              <img src={like} alt='login' className='h-6' />
-              <p className='text-sm'>Liked</p>
-            </NavLink>
-            <NavLink
-              to={'/cart'}
-              className='flex flex-col items-center relative py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out'
-            >
-              <img src={cart} alt='login' className='h-6' />
-              <p className='text-sm'>Cart</p>
-            </NavLink>
+            <LoginComp />
+            <LikedCom />
+            <CartComp />
           </div>
         </div>
       </div>
@@ -77,6 +63,6 @@ export default function Navbar() {
             </NavLink>
           ))}
       </div>
-    </div>
+    </nav>
   );
 }

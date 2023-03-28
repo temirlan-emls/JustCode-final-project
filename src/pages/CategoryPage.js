@@ -126,7 +126,7 @@ export default function CategoryPage() {
             </form>
           )}
         </div>
-        <div className='col-span-3'>
+        <div className='col-span-3 min-h-screen'>
           {' '}
           {isError && <ErrorComp />}
           {isLoading && <LoadingComp />}{' '}

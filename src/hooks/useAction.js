@@ -1,9 +1,9 @@
 import { bindActionCreators } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
-import { cartActions } from '../store/cart/cart.slice';
+import { likedActions } from '../store/liked/liked.slice';
 
 const allActions = {
-  ...cartActions,
+  ...likedActions,
 };
 
 export const useActions = () => {

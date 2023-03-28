@@ -16,6 +16,11 @@ export const fakeStoreApi = createApi({
         url: `products/${id}`,
       }),
     }),
+    getProductsByLimit: build.query({
+      query: (limit) => ({
+        url: `products?limit=${limit}`,
+      }),
+    }),
     getAllProducts: build.query({
       query: (id) => ({
         url: `products`,
@@ -42,6 +47,7 @@ export const fakeStoreApi = createApi({
 export const {
   useGetCategoriesQuery,
   useGetProductQuery,
+  useGetProductsByLimitQuery,
   useGetProductInCategoryQuery,
   useGetAllProductsQuery,
   useSearchProductMutation,
