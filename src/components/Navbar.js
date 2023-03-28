@@ -43,22 +43,22 @@ export default function Navbar() {
               to={'/login'}
               className='flex flex-col items-center py-4 border-b-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out'
             >
-              <img src={login} alt='login' className='h-8' />
-              <p>Login</p>
+              <img src={login} alt='login' className='h-6' />
+              <p className='text-sm'>Login</p>
             </NavLink>
             <NavLink
               to={'/liked'}
               className='flex flex-col items-center py-4 border-b-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out'
             >
-              <img src={like} alt='login' className='h-8' />
-              <p>Liked</p>
+              <img src={like} alt='login' className='h-6' />
+              <p className='text-sm'>Liked</p>
             </NavLink>
             <NavLink
               to={'/cart'}
               className='flex flex-col items-center relative py-4 border-b-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out'
             >
-              <img src={cart} alt='login' className='h-8' />
-              <p>Cart</p>
+              <img src={cart} alt='login' className='h-6' />
+              <p className='text-sm'>Cart</p>
             </NavLink>
           </div>
         </div>
@@ -69,6 +69,7 @@ export default function Navbar() {
         {data &&
           data.map((item) => (
             <NavLink
+              to={`/${item}`}
               key={item}
               className='h-full w-full flex items-center justify-center hover:bg-yellow-100 hover:border-b-8 border-b-yellow-300 transition-all duration-300 ease-in-out capitalize font-normal'
             >

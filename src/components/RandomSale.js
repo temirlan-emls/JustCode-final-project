@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useGetProductQuery } from '../store/fakeStoreApi/fakeStore.api';
 import ErrorComp from './ErrorComp';
 import LoadingComp from './LoadingComp';
+import { NavLink } from 'react-router-dom';
 export default function RandomSale() {
   const [randomInt, setRandomInt] = useState(1);
   const { data, isLoading, isError } = useGetProductQuery(randomInt);
@@ -16,15 +17,14 @@ export default function RandomSale() {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  console.log(data);
   return (
-    <div className='w-full h-full relative border-2 border-gray-300 flex flex-col items-center justify-end'>
+    <div className='w-full h-full relative border-2 border-gray-300 flex flex-col items-center justify-end overflow-hidden rounded-xl'>
       {isError && <ErrorComp />}
       {isLoading && <LoadingComp />}
       {data && (
         <>
           {' '}
-          <div className='w-28 h-10 bg-yellow-300 absolute top-0 left-0 flex justify-center items-center font-bold uppercase'>
+          <div className='w-28 h-10 rounded-br-xl bg-yellow-300 absolute top-0 left-0 flex justify-center items-center font-bold uppercase'>
             <p>Sales</p>
           </div>
           <div className='w-64 h-28 absolute top-0 right-0 p-6 flex flex-col items-end font-bold uppercase'>
@@ -36,15 +36,19 @@ export default function RandomSale() {
               <div className='w-full h-[1px] bg-gray-400 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-12'></div>
             </div>
           </div>
-          <div className='w-full flex flex-col items-center text-center'>
+          <NavLink
+            className='w-full flex flex-col items-center text-center'
+            to={'/'}
+          >
+            {' '}
             <img
               src={data.image}
               alt={data.title}
               className='w-3/6  max-h-64 mb-6'
             />
             <p className='font-semibold w-4/5 mb-4'> {data.title}</p>
-          </div>
-          <div className='w-full h-1/6 bg-gray-200 flex flex-col justify-center items-center text-xl'>
+          </NavLink>
+          <div className='w-full h-1/6 hover:h-1/5 bg-gray-200 flex flex-col justify-center items-center text-xl hover:text-2xl rounded-t-xl transition-all ease-in-out duration-200'>
             <p>Offer is valid until:</p>
             <p className='font-semibold text-yellow-600'>31.12.23</p>
           </div>

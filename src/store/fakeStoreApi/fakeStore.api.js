@@ -12,8 +12,18 @@ export const fakeStoreApi = createApi({
       }),
     }),
     getProduct: build.query({
-      query: (id ) => ({
+      query: (id) => ({
         url: `products/${id}`,
+      }),
+    }),
+    getAllProducts: build.query({
+      query: (id) => ({
+        url: `products`,
+      }),
+    }),
+    getProductInCategory: build.query({
+      query: (category) => ({
+        url: `products/category/${category}`,
       }),
     }),
     searchProduct: build.mutation({
@@ -32,5 +42,7 @@ export const fakeStoreApi = createApi({
 export const {
   useGetCategoriesQuery,
   useGetProductQuery,
+  useGetProductInCategoryQuery,
+  useGetAllProductsQuery,
   useSearchProductMutation,
 } = fakeStoreApi;
