@@ -31,9 +31,19 @@ export const fakeStoreApi = createApi({
         url: `products/category/${category}`,
       }),
     }),
-    searchProduct: build.mutation({
+    registerUser: build.mutation({
       query: (query) => ({
-        url: `api/products/search/`,
+        url: `users`,
+        method: 'POST',
+        body: query,
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      }),
+    }),
+    loginUser: build.mutation({
+      query: (query) => ({
+        url: `auth/login`,
         method: 'POST',
         body: query,
         headers: {
@@ -50,5 +60,6 @@ export const {
   useGetProductsByLimitQuery,
   useGetProductInCategoryQuery,
   useGetAllProductsQuery,
-  useSearchProductMutation,
+  useRegisterUserMutation,
+  useLoginUserMutation,
 } = fakeStoreApi;

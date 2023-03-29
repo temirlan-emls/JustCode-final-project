@@ -37,9 +37,9 @@ export default function Navbar() {
           <h2 className='flex py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out'>
             <img src={mapPoint} alt='mapPoint' className='h-12' />
             <NavLink to={'https://2gis.kz/almaty/firm/9429940000785873'}>
-              Almaty, st.
+              Almaty,
               <br />
-              Abay 52a
+              st.Abay 52a
             </NavLink>
           </h2>
           <div className='w-3/6 flex justify-around'>

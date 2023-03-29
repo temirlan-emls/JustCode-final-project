@@ -1,31 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Cart from '../assets/cart.png';
-import Like from '../assets/like.png';
 import Star from '../assets/star.png';
-import { useActions } from '../hooks/useAction';
-import { useSelector } from 'react-redux';
+import LikeButtonComp from './LikeButtonComp';
 
 export default function ProductItem({ item }) {
-  const [isLiked, setIsLiked] = useState(false);
   const [isInCart, setIsInCart] = useState(false);
-
-  const liked = useSelector((state) => state.liked.liked);
-
-  useEffect(() => {
-    if (liked.length) {
-      const temp = liked.find((oneItem) => oneItem.title === item.title);
-      if (temp) {
-        if (temp.title === item.title) {
-          setIsLiked(true);
-        } else {
-          setIsLiked(false);
-        }
-      }
-    }
-  }, [liked, item]);
-
-  const { removeProduct, addProduct } = useActions();
 
   return (
     <div className='w-full flex flex-col text-center items-center justify-center transition-all duration-300 ease-in-out capitalize font-normal border transform hover:scale-105 rounded-xl overflow-hidden'>
@@ -73,25 +53,8 @@ export default function ProductItem({ item }) {
                 }`}
               />
             </button>
-            <button
-              onClick={() => {
-                if (isLiked) {
-                  setIsLiked(false);
-                  removeProduct(item);
-                } else {
-                  setIsLiked(true);
-                  addProduct(item);
-                }
-              }}
-            >
-              <img
-                src={Like}
-                alt='like'
-                className={`h-8 hover:scale-125 transition-all duration-300 ease-in-out ${
-                  isLiked ? '' : 'saturate-0 brightness-0'
-                }`}
-              />
-            </button>
+
+            <LikeButtonComp item={item} />
           </div>
         </div>
       </div>
