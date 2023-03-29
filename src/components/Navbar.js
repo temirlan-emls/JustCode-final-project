@@ -15,10 +15,10 @@ export default function Navbar() {
       <div className='w-full h-4/6 grid grid-cols-3 items-center'>
         <div className='flex justify-between font-bold text-xl tracking-wide'>
           <h2 className='py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out  flex items-center'>
-            <NavLink to={'/stores'}>Stores</NavLink>
+            <NavLink to={'https://2gis.kz/almaty/'}>Stores</NavLink>
           </h2>
           <h2 className='py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out text-center line leading-5'>
-            <NavLink to={'/shipping'}>
+            <NavLink to={'https://cdek.kz/ru'}>
               Shipping
               <br />
               and
@@ -43,8 +43,8 @@ export default function Navbar() {
             </NavLink>
           </h2>
           <div className='w-3/6 flex justify-around'>
-            <LoginComp />
             <LikedCom />
+            <LoginComp />
             <CartComp />
           </div>
         </div>

@@ -21,16 +21,16 @@ export default function LikeButtonComp({ item }) {
     }
   }, [liked, item]);
 
-  const { removeProduct, addProduct } = useActions();
+  const { removeFromLiked, addToLiked } = useActions();
   return (
     <button
       onClick={() => {
         if (isLiked) {
           setIsLiked(false);
-          removeProduct(item);
+          removeFromLiked(item);
         } else {
           setIsLiked(true);
-          addProduct(item);
+          addToLiked(item);
         }
       }}
     >

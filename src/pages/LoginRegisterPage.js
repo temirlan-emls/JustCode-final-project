@@ -16,7 +16,8 @@ export default function LoginRegisterPage() {
   };
   ////////////////////////////////////
   const auth = useSelector((state) => state.login.login);
-  const [loginUser, { data: loginData }] = useLoginUserMutation();
+  const [loginUser, { data: loginData, isLoading: loginLoading }] =
+    useLoginUserMutation();
   const [currentUser, setCurrentUser] = useState('');
   const { setCredentials } = useActions();
   const loginSubmitHandler = (event) => {
@@ -43,16 +44,19 @@ export default function LoginRegisterPage() {
   };
 
   useEffect(() => {
-    if (loginData) {
+    if (loginData && currentUser) {
       setCredentials({
         user: currentUser,
+        // id: Math.floor(Math.random() * 100) + 1,
+        id: 99,
         token: loginData.token,
       });
     }
   }, [loginData, currentUser]);
 
   ////////////////////////////////////
-  const [registerUser, { data: registerData }] = useRegisterUserMutation();
+  const [registerUser, { data: registerData, isLoading: registerLoading }] =
+    useRegisterUserMutation();
   const registerSubmitHandler = (event) => {
     event.preventDefault();
     if (
@@ -142,11 +146,20 @@ export default function LoginRegisterPage() {
                   className='border  border-gray-300  rounded-md focus:outline-none focus:border-gray-500 px-2 py-2 transition-all ease-in-out duration-200'
                 />
               </div>
-              <input
-                value='Login'
-                type='submit'
-                className='px-4 py-2 bg-yellow-100 rounded-lg hover:bg-yellow-200 hover:border-b-8 hover:border-b-yellow-300 transition-all duration-300 ease-in-out'
-              />
+              {loginLoading ? (
+                <input
+                  disabled
+                  value='Loading...'
+                  type='submit'
+                  className='px-4 py-2 bg-gray-500 rounded-lg text-white'
+                />
+              ) : (
+                <input
+                  value='Login'
+                  type='submit'
+                  className='px-4 py-2 bg-yellow-100 rounded-lg hover:bg-yellow-200 hover:border-b-8 hover:border-b-yellow-300 transition-all duration-300 ease-in-out'
+                />
+              )}
             </form>
             {loginData ? (
               <>
@@ -225,10 +238,20 @@ export default function LoginRegisterPage() {
                 />
               </div>
             </div>
-            <input
-              type='submit'
-              className='px-4 py-2 bg-yellow-100 rounded-lg hover:bg-yellow-200 hover:border-b-8 hover:border-b-yellow-300 transition-all duration-300 ease-in-out'
-            />
+            {registerLoading ? (
+              <input
+                disabled
+                value='Loading...'
+                type='submit'
+                className='px-4 py-2 bg-gray-500 rounded-lg text-white'
+              />
+            ) : (
+              <input
+                value='Login'
+                type='submit'
+                className='px-4 py-2 bg-yellow-100 rounded-lg hover:bg-yellow-200 hover:border-b-8 hover:border-b-yellow-300 transition-all duration-300 ease-in-out'
+              />
+            )}
             {registerData && (
               <p className='absolute bottom-0 px-4 py-2 bg-green-300 rounded-t-xl animate-pulse'>
                 Added new user! ID: 22

@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Cart from '../assets/cart.png';
 import Star from '../assets/star.png';
 import LikeButtonComp from './LikeButtonComp';
+import CartButtonComp from './CartButtonComp';
 
 export default function ProductItem({ item }) {
-  const [isInCart, setIsInCart] = useState(false);
-
   return (
     <div className='w-full flex flex-col text-center items-center justify-center transition-all duration-300 ease-in-out capitalize font-normal border transform hover:scale-105 rounded-xl overflow-hidden'>
       {' '}
@@ -36,24 +34,7 @@ export default function ProductItem({ item }) {
             </div>
           </div>
           <div className='flex justify-around items-center'>
-            <button
-              onClick={() => {
-                if (isInCart) {
-                  setIsInCart(false);
-                } else {
-                  setIsInCart(true);
-                }
-              }}
-            >
-              <img
-                src={Cart}
-                alt='cart'
-                className={`h-8 hover:scale-125 transition-all duration-300 ease-in-out ${
-                  isInCart ? '' : 'saturate-0 brightness-0'
-                }`}
-              />
-            </button>
-
+            <CartButtonComp item={item} />
             <LikeButtonComp item={item} />
           </div>
         </div>

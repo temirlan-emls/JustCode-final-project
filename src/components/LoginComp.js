@@ -15,7 +15,8 @@ export default function LoginComp() {
     if (auth.user) {
       setCredentials({
         user: null,
-        token: null
+        id: null,
+        token: null,
       });
     }
   };

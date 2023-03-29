@@ -6,9 +6,12 @@ import { useGetProductInCategoryQuery } from '../store/fakeStoreApi/fakeStore.ap
 import ErrorComp from '../components/ErrorComp';
 import LoadingComp from '../components/LoadingComp';
 import ProductItem from '../components/ProductItem';
+import { useSetPageTitle } from './../hooks/useSetPageTitle';
 
 export default function CategoryPage() {
   const { category } = useParams();
+  useSetPageTitle(category.toUpperCase(), 'Category');
+
   const { data, isLoading, isError } = useGetProductInCategoryQuery(category);
   const [priceMinMax, setPriceMinMax] = useState({
     min: 0,
@@ -55,6 +58,7 @@ export default function CategoryPage() {
   const onRatingChangeHandle = (event) => {
     setRatingCurr(event.target.value);
   };
+
   return (
     <>
       <div className='grid grid-cols-4'>
