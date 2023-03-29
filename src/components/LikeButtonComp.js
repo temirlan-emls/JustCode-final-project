@@ -18,6 +18,8 @@ export default function LikeButtonComp({ item }) {
         } else {
           setIsLiked(false);
         }
+      } else {
+        setIsLiked(false);
       }
     }
   }, [liked, item]);

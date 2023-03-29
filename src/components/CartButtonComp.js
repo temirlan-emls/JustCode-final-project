@@ -5,7 +5,7 @@ import { useActions } from '../hooks/useAction';
 import { useSelector } from 'react-redux';
 import { useOutside } from '../hooks/useOutside';
 
-export default function LikeButtonComp({ item }) {
+export default function CartButtonComp({ item }) {
   const { ref, isShown, setIsShown } = useOutside(false, 'mouseover');
   const auth = useSelector((state) => state.login.login);
   const cart = useSelector((state) => state.cart.cart);
@@ -14,18 +14,19 @@ export default function LikeButtonComp({ item }) {
   const [canUseCart, setCanUseCart] = useState(false);
 
   useEffect(() => {
-    auth.id ? setCanUseCart(true) : setIsInCart(false);
-    if (cart.length) {
-      const temp = cart.find((oneItem) => oneItem.title === item.title);
-      if (temp) {
-        if (temp.title === item.title) {
-          setIsInCart(true);
-        } else {
-          setIsInCart(false);
-        }
+    auth.id ? setCanUseCart(true) : setCanUseCart(false);
+    const temp = cart.find((oneItem) => oneItem.title === item.title);
+
+    if (temp) {
+      if (temp.title === item.title) {
+        setIsInCart(true);
+      } else {
+        setIsInCart(false);
       }
+    } else {
+      setIsInCart(false);
     }
-  }, [cart, item]);
+  }, [cart, auth, item]);
 
   const { removeProduct, addProduct } = useActions();
   return (
@@ -35,11 +36,11 @@ export default function LikeButtonComp({ item }) {
         <button
           onClick={() => {
             if (isInCart) {
-              setIsInCart(false);
               removeProduct(item);
+              setIsInCart(false);
             } else {
-              setIsInCart(true);
               addProduct(item);
+              setIsInCart(true);
             }
           }}
         >

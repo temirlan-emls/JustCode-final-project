@@ -49,8 +49,8 @@ export default function Navbar() {
             </NavLink>
           </h2>
           <div className='w-3/6 flex justify-around'>
-            <LikedCom />
             <CartComp />
+            <LikedCom />
             <LoginComp />
           </div>
         </div>
