@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import mapPoint from '../assets/mapPoint.png';
 import { NavLink } from 'react-router-dom';
 import { useGetCategoriesQuery } from '../store/fakeStoreApi/fakeStore.api';
@@ -7,24 +8,29 @@ import Logo from './Logo';
 import CartComp from './CartComp';
 import LikedCom from './LikedCom';
 import LoginComp from './LoginComp';
+import { useParams } from 'react-router-dom';
 
 export default function Navbar() {
+  const { category } = useParams();
   const { data, isLoading, isError } = useGetCategoriesQuery();
+  const [activeTab, setActiveTab] = useState();
+
+  useEffect(() => {
+    if (category) {
+      setActiveTab(category);
+    } else {
+      setActiveTab();
+    }
+  }, [category]);
   return (
     <nav className='w-full h-56'>
       <div className='w-full h-4/6 grid grid-cols-3 items-center'>
-        <div className='flex justify-between font-bold text-xl tracking-wide'>
+        <div className='flex justify-between font-bold text-lg tracking-wide'>
           <h2 className='py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out  flex items-center'>
             <NavLink to={'https://2gis.kz/almaty/'}>Stores</NavLink>
           </h2>
-          <h2 className='py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out text-center line leading-5'>
-            <NavLink to={'https://cdek.kz/ru'}>
-              Shipping
-              <br />
-              and
-              <br />
-              Payment
-            </NavLink>
+          <h2 className='py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out text-center'>
+            <NavLink to={'https://cdek.kz/ru'}>Shipping and Payment</NavLink>
           </h2>
           <h2 className='py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out flex items-center'>
             <NavLink to={'/sales'}>Sales</NavLink>
@@ -33,7 +39,7 @@ export default function Navbar() {
         <div>
           <Logo />
         </div>
-        <div className='flex justify-between items-center font-bold text-xl tracking-wide'>
+        <div className='flex justify-between items-center font-bold text-lg tracking-wide'>
           <h2 className='flex py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out'>
             <img src={mapPoint} alt='mapPoint' className='h-12' />
             <NavLink to={'https://2gis.kz/almaty/firm/9429940000785873'}>
@@ -44,8 +50,8 @@ export default function Navbar() {
           </h2>
           <div className='w-3/6 flex justify-around'>
             <LikedCom />
-            <LoginComp />
             <CartComp />
+            <LoginComp />
           </div>
         </div>
       </div>
@@ -55,9 +61,14 @@ export default function Navbar() {
         {data &&
           data.map((item) => (
             <NavLink
+              onClick={() => setActiveTab(item)}
               to={`/${item}`}
               key={item}
-              className='h-full w-full flex items-center justify-center hover:bg-yellow-100 hover:border-b-8 border-b-yellow-300 transition-all duration-300 ease-in-out capitalize font-normal'
+              className={`h-full w-full flex items-center justify-center hover:bg-yellow-100 hover:border-b-8 border-b-yellow-300 transition-all duration-300 ease-in-out capitalize font-normal ${
+                activeTab === item
+                  ? 'bg-yellow-100 border-b-8 border-b-yellow-300'
+                  : ''
+              }`}
             >
               {item}
             </NavLink>

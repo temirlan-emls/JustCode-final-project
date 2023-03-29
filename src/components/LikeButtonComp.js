@@ -1,4 +1,5 @@
 import Like from '../assets/like.png';
+import LikeFull from '../assets/like3.png';
 import React, { useState, useEffect } from 'react';
 import { useActions } from '../hooks/useAction';
 import { useSelector } from 'react-redux';
@@ -35,9 +36,9 @@ export default function LikeButtonComp({ item }) {
       }}
     >
       <img
-        src={Like}
+        src={isLiked ? LikeFull : Like}
         alt='like'
-        className={`h-8 hover:scale-125 transition-all duration-300 ease-in-out ${
+        className={`h-8 hover:scale-125 transition-all duration-500 ease-in-out ${
           isLiked ? '' : 'saturate-0 brightness-0'
         }`}
       />

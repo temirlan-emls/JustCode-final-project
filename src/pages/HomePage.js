@@ -10,7 +10,7 @@ import { useSetPageTitle } from './../hooks/useSetPageTitle';
 export default function HomePage() {
   const { data, isLoading, isError } = useGetProductsByLimitQuery(4);
 
-  useSetPageTitle('Home Page');
+  useSetPageTitle('HOME PAGE');
 
   return (
     <section className='w-full mt-10 min-h-screen'>

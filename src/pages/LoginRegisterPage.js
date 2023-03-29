@@ -5,8 +5,12 @@ import {
 } from '../store/fakeStoreApi/fakeStore.api';
 import { useSelector } from 'react-redux';
 import { useActions } from '../hooks/useAction';
+import { useSetPageTitle } from './../hooks/useSetPageTitle';
+
 
 export default function LoginRegisterPage() {
+  useSetPageTitle('Login');
+
   ////////////////////////////////////
   const [isLogin, setIsLogin] = useState(true);
   const toggleHandler = (event) => {

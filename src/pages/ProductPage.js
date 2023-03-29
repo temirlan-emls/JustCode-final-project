@@ -6,6 +6,7 @@ import LoadingComp from '../components/LoadingComp';
 import LikeButtonComp from '../components/LikeButtonComp';
 import CartButtonComp from '../components/CartButtonComp';
 import { useSetPageTitle } from './../hooks/useSetPageTitle';
+import PriceComp from '../components/PriceComp';
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -50,7 +51,7 @@ export default function ProductPage() {
             </div>
             <p className='my-12 text-xl'>{data.description}</p>
             <p className='text-6xl text-yellow-400 self-end bg-slate-800 px-4 py-2 rounded-tl-2xl rounded-br-2xl'>
-              {data.price} $
+              <PriceComp price={data.price} />
             </p>
           </div>
         </>
