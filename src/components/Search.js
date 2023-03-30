@@ -4,7 +4,7 @@ import { useOutside } from '../hooks/useOutside';
 import SearchItem from './SearchItem';
 
 export default function Search() {
-  const { ref, isShown, setIsShown } = useOutside(false, 'mouseover');
+  const { ref, isShown, setIsShown } = useOutside(false, 'click');
 
   const { data } = useGetAllProductsQuery();
   const [filteredData, setFilteredData] = useState();
@@ -35,8 +35,10 @@ export default function Search() {
           placeholder='Silicon power...'
           name='searchData'
           type='text'
-          className={`w-11/12 h-full border border-gray-300  rounded-xl focus:outline-none focus:bg-yellow-50 hover:bg-yellow-50 border-gray-500 px-6 ${
-            isShown && filteredData ? 'border-b-0 rounded-b-none' : ''
+          className={`w-11/12 h-full border rounded-xl focus:outline-none focus:bg-yellow-50 hover:bg-yellow-50 border-gray-500 px-6 ${
+            isShown && filteredData
+              ? 'border-b-0 rounded-b-none bg-yellow-50'
+              : ''
           }`}
         />
         {filteredData && (
