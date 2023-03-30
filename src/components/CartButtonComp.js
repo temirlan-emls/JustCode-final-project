@@ -15,10 +15,10 @@ export default function CartButtonComp({ item }) {
 
   useEffect(() => {
     auth.id ? setCanUseCart(true) : setCanUseCart(false);
-    const temp = cart.find((oneItem) => oneItem.title === item.title);
+    const currentItem = cart.find((cartItem) => cartItem.title === item.title);
 
-    if (temp) {
-      if (temp.title === item.title) {
+    if (currentItem) {
+      if (currentItem.title === item.title) {
         setIsInCart(true);
       } else {
         setIsInCart(false);

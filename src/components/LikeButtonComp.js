@@ -11,9 +11,11 @@ export default function LikeButtonComp({ item }) {
 
   useEffect(() => {
     if (liked.length) {
-      const temp = liked.find((oneItem) => oneItem.title === item.title);
-      if (temp) {
-        if (temp.title === item.title) {
+      const currentItem = liked.find(
+        (likedItem) => likedItem.title === item.title
+      );
+      if (currentItem) {
+        if (currentItem.title === item.title) {
           setIsLiked(true);
         } else {
           setIsLiked(false);
