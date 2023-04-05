@@ -17,7 +17,7 @@ export default function LikedPage() {
           </h2>
           <div className='mt-6 mb-20 w-full grid md:grid-cols-4 md:gap-4 min-h-3/6 xs:gap-2 xs:grid-cols-2'>
             {liked.map((item) => (
-              <ProductItem item={item} />
+              <ProductItem item={item} key={item.id} />
             ))}
           </div>
         </>

@@ -50,9 +50,9 @@ export default function Search() {
             <div className='flex gap-4 h-full'>
               {filteredData && filteredData.length ? (
                 filteredData.map((item) => (
-                  <div className='w-64'>
+                  <div className='w-64' key={item.id}>
                     {' '}
-                    <SearchItem key={item.id} item={item} />
+                    <SearchItem item={item} />
                   </div>
                 ))
               ) : (

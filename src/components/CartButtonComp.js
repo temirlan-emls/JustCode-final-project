@@ -34,7 +34,8 @@ export default function CartButtonComp({ item }) {
       {' '}
       {canUseCart ? (
         <button
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
             if (isInCart) {
               removeProduct(item);
               setIsInCart(false);
@@ -47,7 +48,7 @@ export default function CartButtonComp({ item }) {
           <img
             src={isInCart ? CartFull : Cart}
             alt='like'
-            className={`lg:h-10 md:h-7  xs:h-6 hover:scale-125 transition-all duration-500 ease-in-out ${
+            className={`lg:h-9 md:h-7  xs:h-6 hover:scale-125 transition-all duration-500 ease-in-out ${
               isInCart ? 'saturate-25 brightness-75' : 'saturate-0 brightness-0'
             }`}
           />
@@ -57,8 +58,9 @@ export default function CartButtonComp({ item }) {
           <img
             src={Cart}
             alt='like'
-            className={`lg:h-10 md:h-7 xs:h-6 saturate-0 `}
-            onMouseOver={() => setIsShown(true)}
+            className={`lg:h-9 md:h-7 xs:h-6 saturate-0 `}
+            onClick={(e) => e.preventDefault()}
+            onMouseOver={(e) => setIsShown(true)}
           />
           <div
             className={`${
