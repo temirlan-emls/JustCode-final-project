@@ -10,7 +10,7 @@ export default function Logo() {
         <img
           src={logo}
           alt='logo'
-          className='w-4/6 transform hover:scale-110 transition-all duration-300 ease-in-out'
+          className='md:w-4/6 xs:w-5/6 transform hover:scale-110 transition-all duration-300 ease-in-out'
         />
       </NavLink>
     </div>

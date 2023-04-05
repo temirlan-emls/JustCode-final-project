@@ -18,17 +18,17 @@ export default function CartComp({ isDropdown = true }) {
   return (
     <div
       to={'/cart'}
-      className='flex flex-col items-center justify-center relative py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out'
+      className='flex flex-col items-center justify-center relative border-b-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out'
       ref={ref}
     >
       <img
         src={Cart}
         alt='cart'
-        className={`transition-all duration-300 ease-in-out h-9 saturate-0 brightness-0 `}
+        className={`transition-all duration-300 ease-in-out lg:h-9 xs:h-6 saturate-0 brightness-0 `}
         onMouseOver={() => setIsShown(true)}
       />
       {cart.length ? (
-        <p className='text-sm absolute -right-3 bottom-2 px-2 py-1 rounded-full bg-yellow-300'>
+        <p className='text-sm absolute -right-3 bottom-2 px-2 py-1 rounded-full bg-yellow-300 xs:text-xs'>
           {cart.length}
         </p>
       ) : (
@@ -36,7 +36,7 @@ export default function CartComp({ isDropdown = true }) {
       )}
       {isDropdown && (
         <div
-          className={`rounded-2xl flex flex-col items-center absolute w-96 max-h-80 top-12 overflow-hidden border-gray-200 overflow-y-scroll bg-white z-10 ${
+          className={`rounded-2xl flex flex-col items-center absolute xs:w-64 lg:w-96 max-h-80 top-12 overflow-hidden border-gray-200 overflow-y-scroll bg-white z-10 ${
             isShown && cart.length ? 'border-2 border-gray-300 block' : 'hidden'
           }`}
         >

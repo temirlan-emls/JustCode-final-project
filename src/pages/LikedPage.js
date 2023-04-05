@@ -15,7 +15,7 @@ export default function LikedPage() {
           <h2 className='text-4xl font-bold mt-10'>
             Liked items list - {liked.length} items
           </h2>
-          <div className='mt-6 mb-20 w-full grid grid-cols-4 gap-6 h-3/6'>
+          <div className='mt-6 mb-20 w-full grid md:grid-cols-4 md:gap-4 min-h-3/6 xs:gap-2 xs:grid-cols-2'>
             {liked.map((item) => (
               <ProductItem item={item} />
             ))}

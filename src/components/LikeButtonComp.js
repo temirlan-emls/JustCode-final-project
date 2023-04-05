@@ -42,7 +42,7 @@ export default function LikeButtonComp({ item }) {
       <img
         src={isLiked ? LikeFull : Like}
         alt='like'
-        className={`h-8 hover:scale-125 transition-all duration-500 ease-in-out ${
+        className={`lg:h-10 md:h-7 xs:h-6 hover:scale-125 transition-all duration-500 ease-in-out ${
           isLiked ? '' : 'saturate-0 brightness-0'
         }`}
       />

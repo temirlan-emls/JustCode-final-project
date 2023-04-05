@@ -24,18 +24,18 @@ export default function LoginComp() {
       {auth.id ? (
         <div
           onClick={() => logOut()}
-          className='flex flex-col items-center py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out relative'
+          className='flex flex-col items-center border-b-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out relative'
         >
           <img src={logout} alt='logout' className='h-6' />
-          <p className='text-sm'>{auth.user && auth.user}</p>
+          <p className='text-sm xs:text-xs'>{auth.user && auth.user}</p>
         </div>
       ) : (
         <NavLink
           to={'/loginRegister'}
-          className='flex flex-col items-center py-4 border-t-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out relative'
+          className='flex flex-col items-center border-b-4 border-transparent hover:border-yellow-300 transition-all duration-300 ease-in-out relative'
         >
           <img src={login} alt='login' className='h-6' />
-          <p className='text-sm'>Login</p>
+          <p className='text-sm xs:text-xs'>Login</p>
         </NavLink>
       )}
     </>

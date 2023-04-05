@@ -14,19 +14,19 @@ export default function HomePage() {
 
   return (
     <section className='w-full mt-10 min-h-screen'>
-      <div className='w-full grid grid-cols-3'>
+      <div className='w-full md:grid md:gap-6 md:grid-cols-3 xs:flex xs:flex-col'>
         <div className='col-span-2'>
           <CarouselComp />
         </div>
-        <div className='pl-6'>
+        <div>
           <RandomSale />
         </div>
       </div>
       <Search />
-      <div className='mt-10 mb-20 h-96 flex-col w-full flex justify-center items-center'>
+      <div className='mt-10 mb-20 min-h-96 flex-col w-full flex justify-center items-center'>
         {isError && <ErrorComp />}
         {isLoading && <LoadingComp />}{' '}
-        <div className='w-full h-full grid grid-cols-4 gap-4'>
+        <div className='w-full h-full grid gap-4 lg:grid-cols-4 md:grid-cols-3 xs:grid-cols-2'>
           {' '}
           {data &&
             data.map((item) => <ProductItem key={item.id} item={item} />)}

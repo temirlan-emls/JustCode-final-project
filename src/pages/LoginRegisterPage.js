@@ -112,8 +112,8 @@ export default function LoginRegisterPage() {
   };
 
   return (
-    <section className='h-screen w-full flex justify-center '>
-      <div className='w-6/12 h-3/6 bg-gradient-to-t from-slate-100 to-white mt-24 rounded-xl border-2 border-gray-300 overflow-hidden relative flex justify-center items-center'>
+    <section className='h-screen w-full flex justify-center'>
+      <div className='xs:w-full md:w-8/12 lg:w-6/12 h-3/6 bg-gradient-to-t from-slate-100 to-white mt-24 rounded-xl border-2 border-gray-300 overflow-hidden relative flex justify-center items-center'>
         <div
           className='w-full grid grid-cols-2 h-12 absolute top-0 left-0 z-10'
           onClick={(e) => toggleHandler(e)}

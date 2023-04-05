@@ -31,13 +31,13 @@ export default function DropdownItem({ item, index }) {
       <div className='col-span-2 ml-4 flex flex-col justify-around '>
         <NavLink
           to={`/${item.category}/${item.id}`}
-          className='w-full text-start'
+          className='w-full text-start 2xl:text-lg md:text-md xs:text-xs'
         >
           {index + 1}) {item.title}
         </NavLink>
-        <div className='w-full flex justify-center items-center'>
+        <div className='w-full flex justify-center items-center 2xl:text-lg md:text-md xs:text-xs'>
           Quantity:{' '}
-          <span className='mx-2 p-2 bg-amber-300 rounded-2xl'>
+          <span className='mx-2 p-2 bg-amber-300 rounded-2xl '>
             {item.quantity}
           </span>
         </div>

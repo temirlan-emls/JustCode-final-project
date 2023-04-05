@@ -14,7 +14,7 @@ export default function ProductPage() {
   useSetPageTitle(`Product #${id}`, 'Product');
 
   return (
-    <div className='mt-10 w-full min-h-screen grid grid-cols-2 gap-6'>
+    <div className='mt-10 w-full min-h-screen md:grid md:grid-cols-2 gap-6 xs:flex xs:flex-col xs:mb-20'>
       {isError && (
         <>
           <ErrorComp />
@@ -29,11 +29,11 @@ export default function ProductPage() {
       )}
       {data && (
         <>
-          <div className='flex flex-col'>
+          <div className='xs:h-96 xs:w-full xs:flex xs:justify-center'>
             <img
               src={data.image}
               alt={data.title}
-              className='h-3/6 self-center justify-self-center mt-12 transform hover:scale-105 transition-all duration-300 ease-in-out'
+              className='h-3/6 self-center justify-self-center mt-12 transform hover:scale-105 transition-all duration-300 ease-in-out xs:h-5/6'
             />
           </div>
           <div className='flex flex-col'>

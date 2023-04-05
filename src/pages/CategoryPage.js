@@ -91,8 +91,8 @@ export default function CategoryPage() {
   };
 
   return (
-    <div className='grid grid-cols-4 mb-20'>
-      <div className='col-span-1 h-96 border border-gray-300 mt-10 mr-6 p-6 rounded-xl bg-gray-50'>
+    <div className='mb-20 lg:grid lg:grid-cols-4 lg:gap-6 lg:items-start xs:flex xs:flex-col xs:items-center'>
+      <div className='col-span-1 h-96 border border-gray-300 mt-10 mr-6 p-6 rounded-xl bg-gray-50 xs:w-full xs:m-0 xs:mt-6'>
         <p className='text-4xl font-bold'>Filter</p>
         {isError && <ErrorComp />}
         {isLoading && <LoadingComp />}
@@ -128,7 +128,7 @@ export default function CategoryPage() {
                 </p>
               </div>
             </div>
-            <div className='mt-10'>
+            <div className='mt-10 '>
               <label htmlFor='rating'>Rating</label>
               <br />
               <input
@@ -161,8 +161,8 @@ export default function CategoryPage() {
           </form>
         )}
       </div>
-      <div className='col-span-3 min-h-screen'>
-        <div className='mt-10 mb-6 flex justify-between'>
+      <div className='col-span-3 min-h-screen xs:w-full'>
+        <div className='mt-10 mb-6 flex justify-between lg:flex-row xs:flex-col xs:gap-4'>
           <form onChange={(e) => searchInPageHandler(e)}>
             {' '}
             <input
@@ -185,7 +185,7 @@ export default function CategoryPage() {
         </div>
         {isError && <ErrorComp />}
         {isLoading && <LoadingComp />}{' '}
-        <div className='w-full grid grid-cols-3 gap-6'>
+        <div className='w-full grid md:grid-cols-3 lg:gap-4 xs:gap-2 xs:grid-cols-2'>
           {' '}
           {data &&
             data

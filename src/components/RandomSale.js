@@ -51,11 +51,11 @@ export default function RandomSale() {
             <img
               src={data.image}
               alt={data.title}
-              className='w-3/6  max-h-64 mb-6'
+              className='w-3/6 max-h-64 mb-6 xs:w-2/6 xs:mt-28'
             />
             <p className='font-semibold w-4/5 mb-4'> {data.title}</p>
           </NavLink>
-          <div className='w-full h-1/6 hover:h-1/5 border-t-2 border-gray-300 bg-gray-100 flex flex-col justify-center items-center text-xl rounded-t-xl  hover:text-2xl  transition-all ease-in-out duration-200'>
+          <div className='w-full h-1/6 hover:h-1/5 border-t-2 border-gray-300 bg-gray-100 flex flex-col justify-center items-center lg:text-xl xs:text-sm rounded-t-xl  hover:text-2xl  transition-all ease-in-out duration-200'>
             <p>Offer is valid until:</p>
             <p className='font-semibold text-amber-600'>31.12.23</p>
           </div>
